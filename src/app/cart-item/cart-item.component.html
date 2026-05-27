@@ -4,7 +4,6 @@
         <h2>{{product().name}}</h2>
         <p>{{product().description}}</p>
         <p>Part Type: {{product().category}}</p>
-        <p>Available Inventory: {{availableInventory()}}</p>
     </div>
 </div>
 <div class="price">
@@ -12,5 +11,5 @@
     @if (product().discount > 0) {
     <p>{{(product().price * (1 - product().discount)) | currency}} (Sale)</p>
     }
-    <button class="cta" (click)="addToCart($event)">Buy</button>
+    <button class="cta" (click)="removeFromCart()">Remove</button>
 </div>

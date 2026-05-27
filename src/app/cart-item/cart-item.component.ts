@@ -3,23 +3,19 @@ import { IProduct } from '../product.model';
 import { CurrencyPipe, NgClass } from '@angular/common';
 
 @Component({
-  selector: 'bot-product-details',
+  selector: 'bot-cart-item',
   imports: [CurrencyPipe, NgClass],
-  templateUrl: './product-details.component.html',
-  styleUrl: './product-details.component.css',
+  templateUrl: './cart-item.component.html',
+  styleUrl: './cart-item.component.css',
 })
-export class ProductDetailsComponent {
+export class CartItemComponent {
   product = input.required<IProduct>();
-  availableInventory = signal(3);  
 
   getImageUrl(product: IProduct): string {
       return '/images/robot-parts/' + product.imageName;
   }
 
-  addToCart(event: MouseEvent): void {
-    setTimeout(() => {
-      this.availableInventory.update(inventory => inventory - 1);
-    }, 100);
+  removeFromCart(): void {
+    // Implementation for removing item from cart
   }
-  
 }
